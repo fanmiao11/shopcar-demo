@@ -22,6 +22,14 @@ export default {
       type: String,
     },
   },
+  created(){
+    this.$axios({
+        url:'/api/cart',
+        
+    }).then(res => {
+        console.log(res.data.list);
+    })
+  }
 };
 </script>
 
