@@ -11,7 +11,7 @@
     <input
       type="number"
       class="form-control inp"
-      v-model="fatherObj.goods_count"
+      v-model.number="fatherObj.goods_count"
     />
     <button
       type="button"

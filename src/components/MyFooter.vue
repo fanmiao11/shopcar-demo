@@ -9,10 +9,10 @@
     <!-- 合计 -->
     <div>
       <span>合计:</span>
-      <span class="price">¥ 0</span>
+      <span class="price">¥ {{allPrice}}</span>
     </div>
     <!-- 按钮 -->
-    <button type="button" class="footer-btn btn btn-primary">结算 ( 0 )</button>
+    <button type="button" class="footer-btn btn btn-primary">结算 ( {{allCount}} )</button>
   </div>
 </template>
 
@@ -20,7 +20,6 @@
 export default {
   data(){
     return{
-      // isALL:''
     }
   },
   
@@ -36,7 +35,24 @@ export default {
         return this.$parent.goodsList.every(ele => ele.goods_state)
 
       }
+    },
+    allCount(){
+      return this.$parent.goodsList.reduce((sum,next)=>{
+        if(next.goods_state){
+          sum+=next.goods_count
+        }
+        return sum
+      },0)
+    },
+    allPrice(){
+      return this.$parent.goodsList.reduce((sum,next)=>{
+        if(next.goods_state){
+          sum+=next.goods_count*next.goods_price
+        }
+        return sum
+      },0)
     }
+
   }
   
 }
