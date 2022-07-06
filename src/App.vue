@@ -14,7 +14,7 @@ import MyFooter from './components/MyFooter.vue';
 export default {
   data(){
     return{
-      goodsList:{}
+      goodsList:[]
 
     }
     },

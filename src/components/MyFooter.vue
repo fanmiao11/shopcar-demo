@@ -3,7 +3,7 @@
   <div class="my-footer">
     <!-- 全选 -->
     <div class="custom-control custom-checkbox">
-      <input type="checkbox" class="custom-control-input" id="footerCheck">
+      <input type="checkbox" class="custom-control-input" id="footerCheck" v-model="isAll">
       <label class="custom-control-label" for="footerCheck">全选</label>
     </div>
     <!-- 合计 -->
@@ -18,6 +18,26 @@
 
 <script>
 export default {
+  data(){
+    return{
+      // isALL:''
+    }
+  },
+  
+  // 计算属性
+  computed:{
+    // 设置值==全选的状态给小复选框
+    // 取值==全选的状态取决于小复选框
+    isAll:{
+      set(val){
+        this.$parent.goodsList.forEach(ele => ele.goods_state=val)
+      },
+      get(){
+        return this.$parent.goodsList.every(ele => ele.goods_state)
+
+      }
+    }
+  }
   
 }
 </script>
