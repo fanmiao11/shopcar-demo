@@ -14,7 +14,7 @@
       <div class="bottom">
         <span class="price">¥ {{goods.goods_price}}</span>
         <span>
-            <MyCount></MyCount>
+            <MyCount :fatherObj="goods"></MyCount>
         </span>
       </div>
     </div>
