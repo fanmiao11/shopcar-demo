@@ -2,13 +2,14 @@
   <div
     :style="{ color: color, backgroundColor: backgroundcolor }"
     class="my-header"
-  >
+    >
     {{ title }}
   </div>
 </template>
 
 <script>
 export default {
+    
   props: {
     title: {
       type: String,
@@ -22,14 +23,6 @@ export default {
       type: String,
     },
   },
-  created(){
-    this.$axios({
-        url:'/api/cart',
-        
-    }).then(res => {
-        console.log(res.data.list);
-    })
-  }
 };
 </script>
 
